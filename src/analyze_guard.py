@@ -63,20 +63,26 @@ def wilson(k: int, n: int, z: float = 1.96) -> Tuple[float, float, float]:
 
 
 def load_originals(results: str) -> Dict[Tuple[int, int], Tuple[int, str]]:
-    """The pre-injection byte, from the repair logs the injector writes.
+    """The pre-injection byte, from the repair logs the injector writes, keyed per file.
+
+    The key carries the file label and not only the offset and bit. Different quantized files
+    built from one model do collide on (offset, bit): 54 of 2,521 keys collide in the v2
+    campaign. The original bytes happen to agree in every one of those, so nothing was ever
+    computed wrongly here, but a global key is one dataset away from silently attributing one
+    file's byte to another file's injection.
 
     The logs exist so a crash mid-injection leaves a breadcrumb. That they also record the
     original value is what makes this analysis possible without rerunning anything, which is
     an argument for writing them even when nothing crashes.
     """
-    out: Dict[Tuple[int, int], Tuple[int, str]] = {}
+    out: Dict[Tuple[str, int, int], Tuple[int, str]] = {}
     for f in glob.glob(os.path.join(results, "*.repair")):
         label = os.path.basename(f).replace("injections-", "").replace(".jsonl.repair", "")
         with open(f, encoding="utf-8") as fh:
             for line in fh:
                 r = json.loads(line)
                 if r.get("state") == "open":
-                    out[(r["offset"], r["bit"])] = (r["original"], label)
+                    out[(label, r["offset"], r["bit"])] = (r["original"], label)
     return out
 
 
@@ -113,7 +119,7 @@ def main() -> int:
                 r = json.loads(line)
                 if r["site"]["stratum"] != EXPONENT:
                     continue
-                key = (r["site"]["abs_offset"], r["site"]["bit"])
+                key = (label, r["site"]["abs_offset"], r["site"]["bit"])
                 if key not in orig:
                     continue
                 rows.append((label, r, orig[key][0]))

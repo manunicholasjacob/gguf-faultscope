@@ -185,6 +185,7 @@ src/run_study.py         campaign driver: determinism floor, inject, score, anal
 src/make_tables.py       the analysis. Read its docstring before quoting any per-format number.
 src/make_figures.py      figures, and it renames one that must not be used.
 src/analyze_guard.py     the range-check mitigation, scored against the repair logs.
+src/verify_claims.py     re-derives every number in this README from data/. Run it.
 notebooks/               the campaigns as they were run, on free Kaggle GPU time.
 schema/                  the injection record, field by field.
 data/<device>-<model>/   one directory per campaign. Add yours.
@@ -194,7 +195,14 @@ data/<device>-<model>/   one directory per campaign. Add yours.
 python src/gguf_faultscope.py --selftest
 python src/gguf_inject.py --selftest
 python src/run_study.py --dry-run --n 5 --out /tmp/t.jsonl
+python src/verify_claims.py                # every number in this README, recomputed
 ```
+
+**Do not take any figure on this page on trust.** `verify_claims.py` types each published number
+in by hand and recomputes it from `data/`, and it runs on every push. Three figures in this
+study's history turned out to be wrong, and every one failed the same way: computed under one
+criterion or on one campaign, then quoted where that scope no longer applied. If a number here
+and the data ever disagree, that script fails the build and says which claim.
 
 ## Which campaign to quote
 

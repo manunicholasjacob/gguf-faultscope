@@ -32,3 +32,8 @@ jobs:
         run: python src/analyze_guard.py --results data/p100-qwen2.5-0.5b-v2/ --ranges data/p100-qwen2.5-0.5b/scale_ranges.json
       - name: Every shipped record matches the published schema
         run: python src/validate_data.py
+      # The one that matters most. Every figure in the README, the release notes and the
+      # citation metadata is re-derived from data/ and compared. Three published numbers in
+      # this study's history were wrong; all three would have failed here.
+      - name: Every published number is re-derived from the released records
+        run: python src/verify_claims.py
