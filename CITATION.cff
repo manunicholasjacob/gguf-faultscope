@@ -32,8 +32,8 @@ abstract: >-
   exponent bit, with no redundancy. The repository is built to be added to: the record schema, the
   plan audit and the device table exist so a run from other hardware is a pull request.
 license: MIT
-version: 0.1.0
-date-released: "REPLACE-WITH-RELEASE-DATE"
+version: "0.1.0"
+date-released: "2026-08-24"
 keywords:
   - silent data corruption
   - fault injection
