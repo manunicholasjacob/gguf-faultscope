@@ -103,9 +103,37 @@ percent [78.0, 85.3]: it also flags benign flips that leave a scale somewhere un
 harmless, which for a load-time validity check is the right way round. One parity bit over the
 next bit down covers most of the remainder.
 
-An earlier figure of 81.3 percent came from the first campaign alone and does not replicate:
-that campaign drew its exponent sites overwhelmingly from the two files whose scale ranges are
-narrowest, where a range check has the least work to do. The intervals do not overlap.
+An earlier figure of 81.3 percent came from the first campaign alone and does not replicate.
+That campaign drew its exponent sites overwhelmingly from the two files whose scale ranges are
+narrowest, which is where a range check has the least work to do.
+
+The comparison survives being made under one criterion at a time, which matters because the
+original pair did not: 81.3 percent was a loose-criterion figure and the number it was being
+compared against was a strict one.
+
+| Campaign | Strict criterion | Recorded criterion |
+|---|---|---|
+| first, role-only, `p100-qwen2.5-0.5b` | 112/138, **81.2%** [73.8, 86.8] | 126/155, **81.3%** [74.4, 86.6] |
+| dual-stratified, `p100-qwen2.5-0.5b-v2` | 354/515, **68.7%** [64.6, 72.6] | 383/562, **68.1%** [64.2, 71.9] |
+
+The intervals do not overlap in either column. Publish the strict pair; the repository publishes
+nothing from the recorded criterion.
+
+### Reconciling the hard-failure counts, because two right numbers look like one wrong one
+
+955 hard failures across all three campaigns, 817 of them in the two dual-stratified campaigns,
+which leaves **138** for the first campaign. An earlier draft reported **155** for that same
+campaign. Both are correct and they differ only by criterion:
+
+```bash
+python src/make_tables.py --results data/p100-qwen2.5-0.5b/                     # 138
+python src/make_tables.py --results data/p100-qwen2.5-0.5b/ --criterion recorded # 155
+```
+
+The 17 events between them are all exponent-bit-3 flips that moved more than ten percent of token
+predictions while perplexity moved by at most a tenth. They are real and they are recorded in
+every row; they are not hard failures. **817 + 138 = 955**, and that is the only arithmetic this
+repository publishes.
 
 ```bash
 python src/analyze_guard.py --results data/p100-qwen2.5-0.5b-v2 --ranges data/p100-qwen2.5-0.5b/scale_ranges.json
