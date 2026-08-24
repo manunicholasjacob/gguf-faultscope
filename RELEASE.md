@@ -36,7 +36,32 @@ that JOSS requires, which matters if a software paper is ever a target for this 
 Go to zenodo.org, GitHub tab, **Sync now**, wait, **Sync now again**. The list is cached and one
 sync frequently does not show a repository created minutes earlier. Then flip the toggle for
 `gguf-faultscope` by clicking the switch itself rather than the row; the row is not the control.
-Reload the page and check the toggle is still on before continuing.
+
+**Do not confirm this by looking at it. Confirm it with a command.** Flipping the toggle installs
+a webhook on the GitHub side, so GitHub's own API answers the question without logging in to
+Zenodo at all:
+
+```bash
+gh api repos/manunicholasjacob/gguf-faultscope/hooks \
+  --jq '[.[] | select(.config.url | test("zenodo"))] | length'
+```
+
+**1 means the integration is live. 0 means it is not, whatever the web page appeared to show.**
+Measured 24 August 2026, this repository returned **0** while nine of the ten already-archived
+repositories returned 1, which is what the check is for. Run it across everything at once:
+
+```bash
+for r in $(gh repo list manunicholasjacob --limit 40 --json name,isPrivate \
+             --jq '.[]|select(.isPrivate==false)|.name'); do
+  printf "%-32s %s\n" "$r" \
+    "$(gh api repos/manunicholasjacob/$r/hooks \
+         --jq '[.[]|select(.config.url|test("zenodo"))]|length')"
+done
+```
+
+This is the check that would have caught the six repositories in this campaign that cut a release
+before the toggle and were never archived. It takes a second and it does not depend on reading a
+cached page correctly.
 
 **4. Only now, cut the release.**
 
@@ -48,6 +73,11 @@ gh release create v0.1.0 --title "v0.1.0" --notes-file RELEASE_NOTES.md
 
 Zenodo archives on the release webhook. A release created before step 3 fires no webhook and is
 never archived, and the fix is to cut another release rather than to wait.
+
+**The tag is already pushed and it is inert.** `v0.1.0` points at the commit carrying both the
+corrected `CITATION.cff` date and the README count reconciliation; a tag does nothing until a
+release is created from it. So the only irreversible click in this whole file is the one at the
+end of step 4, and step 3 must be verified with the command above before you make it.
 
 **5. Put the concept DOI into `CITATION.cff` and the README, then push again.**
 
