@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: "If you use this tool, its exposure model or its data, please cite it."
+title: "gguf-faultscope: single-bit fault exposure of block-quantized language models"
+type: software
+authors:
+  - family-names: "Jacob"
+    given-names: "Manu Nicholas"
+    orcid: "https://orcid.org/0009-0007-6589-6572"
+repository-code: "https://github.com/manunicholasjacob/gguf-faultscope"
+url: "https://github.com/manunicholasjacob/gguf-faultscope"
+abstract: >-
+  A tool and a dataset for the question of what a single flipped bit does to a block-quantized
+  language model. Silent data corruption research measures fault effects on models held in 32-bit
+  or 16-bit floating point, because that is how models are trained; deployed inference uses block
+  quantization, where 32 or 256 weights share one 16-bit scale, and that sharing changes what one
+  bit can reach. The tool derives a file's corruption exposure from its header alone, using the
+  block layouts the runtime publishes, reports any tensor type it cannot model rather than
+  silently excluding it, and checks a file's scales against a range recorded at build time. The
+  harness injects single-bit faults stratified by structural role and by block type, restores and
+  verifies each bit, and scores one forward pass per injection. In 6,725 injections across three
+  campaigns on a Tesla P100, all 955 hard failures landed in the exponent field of a scale and
+  3,925 injections elsewhere produced none, including 2,150 into the sign and mantissa bits of the
+  same scales, which reach the same weights. How far a bit reaches is not what decides whether it
+  does damage. Within the exponent, which bits matter moves with model size: a sixteenfold change
+  in one block's scale is nearly harmless at 0.5 billion parameters, at 2.1 percent, and breaks
+  the 1.5 billion parameter model 22.8 percent of the time, on non-overlapping intervals. The
+  quantization format a file is built in changes its exposure 2.6-fold at 0.5 billion parameters
+  and 13.5-fold at 1.5 billion, because a larger model actually receives the format it asked for
+  rather than a fallback. Because a scale is a small number by construction the damaging
+  corruption is one-directional, so a five-bit maximum recorded in the header and compared at load
+  catches 68.7 percent of hard failures and every one of 310 flips of the most significant
+  exponent bit, with no redundancy. The repository is built to be added to: the record schema, the
+  plan audit and the device table exist so a run from other hardware is a pull request.
+license: MIT
+version: 0.1.0
+date-released: "REPLACE-WITH-RELEASE-DATE"
+keywords:
+  - silent data corruption
+  - fault injection
+  - quantization
+  - gguf
+  - llama.cpp
+  - reliability
+  - reproducibility
+references:
+  - type: software
+    title: "llama.cpp"
+    authors:
+      - name: "The llama.cpp contributors"
+    repository-code: "https://github.com/ggml-org/llama.cpp"
+    license: MIT
+    notes: "The block layouts this tool models are declared in its ggml-common.h, and its quantizer produced every file measured here."

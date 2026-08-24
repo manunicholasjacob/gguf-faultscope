@@ -1,0 +1,80 @@
+{
+  "Q4_0": {
+    "wide_bit_pct": 10.5874,
+    "exponent_bit_pct": 2.8176,
+    "total_bits": 7427395584.0,
+    "types": {
+      "Q6_K": 1,
+      "Q4_0": 196
+    },
+    "bits_by_type": {
+      "Q6_K": 1531514880.0,
+      "Q4_0": 5895880704.0
+    },
+    "unmodelled_types": {
+      "F32": 141
+    }
+  },
+  "Q4_K_M": {
+    "wide_bit_pct": 10.1932,
+    "exponent_bit_pct": 0.6619,
+    "total_bits": 7836143616.0,
+    "types": {
+      "Q6_K": 29,
+      "Q4_K": 168
+    },
+    "bits_by_type": {
+      "Q6_K": 2832076800.0,
+      "Q4_K": 5004066816.0
+    },
+    "unmodelled_types": {
+      "F32": 141
+    }
+  },
+  "IQ4_XS": {
+    "wide_bit_pct": 6.5859,
+    "exponent_bit_pct": 0.435,
+    "total_bits": 7165218816.0,
+    "types": {
+      "Q6_K": 1,
+      "IQ4_XS": 165,
+      "Q5_K": 31
+    },
+    "bits_by_type": {
+      "Q6_K": 1531514880.0,
+      "IQ4_XS": 5346066432.0,
+      "Q5_K": 287637504.0
+    },
+    "unmodelled_types": {
+      "F32": 141
+    }
+  },
+  "Q6_K": {
+    "wide_bit_pct": 8.5714,
+    "exponent_bit_pct": 0.2976,
+    "total_bits": 10129674240.0,
+    "types": {
+      "Q6_K": 197
+    },
+    "bits_by_type": {
+      "Q6_K": 10129674240.0
+    },
+    "unmodelled_types": {
+      "F32": 141
+    }
+  },
+  "Q8_0": {
+    "wide_bit_pct": 5.8824,
+    "exponent_bit_pct": 1.8382,
+    "total_bits": 13120339968.0,
+    "types": {
+      "Q8_0": 197
+    },
+    "bits_by_type": {
+      "Q8_0": 13120339968.0
+    },
+    "unmodelled_types": {
+      "F32": 141
+    }
+  }
+}

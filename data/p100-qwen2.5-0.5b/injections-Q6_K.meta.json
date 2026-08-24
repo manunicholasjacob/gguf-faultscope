@@ -1,0 +1,54 @@
+{
+  "model": "model-Q6_K.gguf",
+  "model_summary": {
+    "path": "/kaggle/working/models/model-Q6_K.gguf",
+    "size": 505736000,
+    "gguf_version": 3,
+    "alignment": 32,
+    "data_start": 5947712,
+    "n_tensors": 290,
+    "data_end": 505736000,
+    "trailing_bytes": 0,
+    "by_type": {
+      "F32": {
+        "tensors": 121,
+        "elements": 71552,
+        "bytes": 286208
+      },
+      "Q8_0": {
+        "tensors": 145,
+        "elements": 389365760,
+        "bytes": 413701120
+      },
+      "Q6_K": {
+        "tensors": 24,
+        "elements": 104595456,
+        "bytes": 85800960
+      }
+    }
+  },
+  "seed": 7,
+  "n_per_stratum": 100,
+  "strata": [
+    "fp16_scale_sign",
+    "fp16_scale_exponent",
+    "fp16_scale_mantissa",
+    "packed_scale",
+    "int_scale",
+    "payload"
+  ],
+  "floor": {
+    "repeats": 3,
+    "top1_diff_rate": 0.0,
+    "delta_nll": 0.0,
+    "deterministic": true,
+    "clean_ppl": 49.095028,
+    "clean_nll": 3.893758,
+    "n_positions": 97,
+    "mean_load_s": 0.526,
+    "mean_eval_s": 0.134
+  },
+  "injections": 500,
+  "catastrophic": 30,
+  "scorer": "LlamaScorer"
+}

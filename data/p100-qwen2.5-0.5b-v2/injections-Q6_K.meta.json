@@ -1,0 +1,24 @@
+{
+  "floor": {
+    "repeats": 3,
+    "top1_diff_rate": 0.0,
+    "delta_nll": 0.0,
+    "deterministic": true,
+    "clean_ppl": 49.095028,
+    "clean_nll": 3.893758,
+    "n_positions": 97,
+    "mean_load_s": 0.551,
+    "mean_eval_s": 0.135
+  },
+  "n": 375,
+  "catastrophic": 83,
+  "quota": {
+    "fp16_scale_exponent": 100,
+    "fp16_scale_sign": 25,
+    "fp16_scale_mantissa": 25,
+    "packed_scale": 25,
+    "int_scale": 25,
+    "payload": 25
+  },
+  "seed": 11
+}

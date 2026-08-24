@@ -1,0 +1,213 @@
+{
+  "model_source": "Qwen/Qwen2.5-0.5B-Instruct",
+  "quantized_from": "one F16 conversion in the pre-flight kernel, with llama-quantize",
+  "formats": [
+    "IQ4_XS",
+    "Q4_0",
+    "Q4_K_M",
+    "Q6_K",
+    "Q8_0"
+  ],
+  "n_per_stratum": 100,
+  "seed": 7,
+  "strata": [
+    "fp16_scale_sign",
+    "fp16_scale_exponent",
+    "fp16_scale_mantissa",
+    "packed_scale",
+    "int_scale",
+    "payload"
+  ],
+  "probe": "The memory bandwidth of a system determines how quickly weights can be streamed. When a model is quantized, several weights share one scale factor. A single bit flip in that scale changes every weight in the block at once. The question is whether the model notices. Large networks tolerate small perturbations because they are statistically redundant, but that tolerance is incidental rather than designed, and it does not extend to every part of the representation equally. Measurement is the only way to tell which parts matter.",
+  "backend": "gpu",
+  "determinism_floor": {
+    "IQ4_XS": {
+      "cpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 53.863283,
+        "clean_nll": 3.986449,
+        "n_positions": 97,
+        "mean_load_s": 0.66,
+        "mean_eval_s": 0.216
+      },
+      "gpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 53.863283,
+        "clean_nll": 3.986449,
+        "n_positions": 97,
+        "mean_load_s": 0.572,
+        "mean_eval_s": 0.136
+      },
+      "cpu_vs_gpu": {
+        "top1_diff_count": 0,
+        "top1_diff_rate": 0.0,
+        "first_divergence_position": null,
+        "delta_nll": 0.0,
+        "ppl_ratio": 1.0,
+        "non_finite": false
+      }
+    },
+    "Q4_0": {
+      "cpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 55.341552,
+        "clean_nll": 4.013524,
+        "n_positions": 97,
+        "mean_load_s": 0.673,
+        "mean_eval_s": 0.192
+      },
+      "gpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 55.341552,
+        "clean_nll": 4.013524,
+        "n_positions": 97,
+        "mean_load_s": 0.56,
+        "mean_eval_s": 0.137
+      },
+      "cpu_vs_gpu": {
+        "top1_diff_count": 0,
+        "top1_diff_rate": 0.0,
+        "first_divergence_position": null,
+        "delta_nll": 0.0,
+        "ppl_ratio": 1.0,
+        "non_finite": false
+      }
+    },
+    "Q4_K_M": {
+      "cpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 46.69029,
+        "clean_nll": 3.843536,
+        "n_positions": 97,
+        "mean_load_s": 0.701,
+        "mean_eval_s": 0.19
+      },
+      "gpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 46.69029,
+        "clean_nll": 3.843536,
+        "n_positions": 97,
+        "mean_load_s": 0.582,
+        "mean_eval_s": 0.135
+      },
+      "cpu_vs_gpu": {
+        "top1_diff_count": 0,
+        "top1_diff_rate": 0.0,
+        "first_divergence_position": null,
+        "delta_nll": 0.0,
+        "ppl_ratio": 1.0,
+        "non_finite": false
+      }
+    },
+    "Q6_K": {
+      "cpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 49.095028,
+        "clean_nll": 3.893758,
+        "n_positions": 97,
+        "mean_load_s": 0.739,
+        "mean_eval_s": 0.195
+      },
+      "gpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 49.095028,
+        "clean_nll": 3.893758,
+        "n_positions": 97,
+        "mean_load_s": 0.584,
+        "mean_eval_s": 0.133
+      },
+      "cpu_vs_gpu": {
+        "top1_diff_count": 0,
+        "top1_diff_rate": 0.0,
+        "first_divergence_position": null,
+        "delta_nll": 0.0,
+        "ppl_ratio": 1.0,
+        "non_finite": false
+      }
+    },
+    "Q8_0": {
+      "cpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 49.153671,
+        "clean_nll": 3.894952,
+        "n_positions": 97,
+        "mean_load_s": 0.765,
+        "mean_eval_s": 0.198
+      },
+      "gpu": {
+        "repeats": 3,
+        "top1_diff_rate": 0.0,
+        "delta_nll": 0.0,
+        "deterministic": true,
+        "clean_ppl": 49.153671,
+        "clean_nll": 3.894952,
+        "n_positions": 97,
+        "mean_load_s": 0.572,
+        "mean_eval_s": 0.131
+      },
+      "cpu_vs_gpu": {
+        "top1_diff_count": 0,
+        "top1_diff_rate": 0.0,
+        "first_divergence_position": null,
+        "delta_nll": 0.0,
+        "ppl_ratio": 1.0,
+        "non_finite": false
+      }
+    }
+  },
+  "preflight_verdict": {
+    "within_backend_floor_cpu": 0.0,
+    "within_backend_floor_gpu": 0.0,
+    "sweep_is_answerable": true,
+    "cuda_available": true,
+    "h3_testable": true,
+    "seconds_per_measurement_cpu": 0.96,
+    "seconds_per_measurement_gpu": 0.72,
+    "estimated_sweep_minutes_cpu": 14.4,
+    "estimated_sweep_minutes_gpu": 10.8,
+    "nvml_energy_counter_supported": false,
+    "cross_backend_divergence": {
+      "IQ4_XS": 0.0,
+      "Q4_0": 0.0,
+      "Q4_K_M": 0.0,
+      "Q6_K": 0.0,
+      "Q8_0": 0.0
+    },
+    "cross_backend_first_divergence": {
+      "IQ4_XS": null,
+      "Q4_0": null,
+      "Q4_K_M": null,
+      "Q6_K": null,
+      "Q8_0": null
+    }
+  },
+  "injections": 2400,
+  "catastrophic": 155
+}

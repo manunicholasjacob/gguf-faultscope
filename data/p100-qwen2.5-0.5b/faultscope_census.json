@@ -1,0 +1,71 @@
+{
+  "IQ4_XS": {
+    "wide_bit_pct": 8.1645,
+    "exponent_bit_pct": 2.3017,
+    "total_bits": 2761687040.0,
+    "types": {
+      "Q8_0": 1,
+      "IQ4_NL": 120,
+      "Q5_1": 24,
+      "Q5_K": 3,
+      "IQ4_XS": 21
+    },
+    "unmodelled_types": {
+      "F32": 121
+    },
+    "coverage": "wide_bit_pct and exponent_bit_pct are computed over MODELLED tensors only. If unmodelled_types is non-empty the census does not describe the whole file."
+  },
+  "Q4_0": {
+    "wide_bit_pct": 8.9248,
+    "exponent_bit_pct": 2.789,
+    "total_bits": 2767364096.0,
+    "types": {
+      "Q8_0": 1,
+      "Q4_0": 168
+    },
+    "unmodelled_types": {
+      "F32": 121
+    },
+    "coverage": "wide_bit_pct and exponent_bit_pct are computed over MODELLED tensors only. If unmodelled_types is non-empty the census does not describe the whole file."
+  },
+  "Q4_K_M": {
+    "wide_bit_pct": 7.9886,
+    "exponent_bit_pct": 2.0399,
+    "total_bits": 3132588032.0,
+    "types": {
+      "Q8_0": 13,
+      "Q5_0": 132,
+      "Q6_K": 12,
+      "Q4_K": 12
+    },
+    "unmodelled_types": {
+      "F32": 121
+    },
+    "coverage": "wide_bit_pct and exponent_bit_pct are computed over MODELLED tensors only. If unmodelled_types is non-empty the census does not describe the whole file."
+  },
+  "Q6_K": {
+    "wide_bit_pct": 6.3443,
+    "exponent_bit_pct": 1.5736,
+    "total_bits": 3996016640.0,
+    "types": {
+      "Q8_0": 145,
+      "Q6_K": 24
+    },
+    "unmodelled_types": {
+      "F32": 121
+    },
+    "coverage": "wide_bit_pct and exponent_bit_pct are computed over MODELLED tensors only. If unmodelled_types is non-empty the census does not describe the whole file."
+  },
+  "Q8_0": {
+    "wide_bit_pct": 5.8824,
+    "exponent_bit_pct": 1.8382,
+    "total_bits": 4198670336.0,
+    "types": {
+      "Q8_0": 169
+    },
+    "unmodelled_types": {
+      "F32": 121
+    },
+    "coverage": "wide_bit_pct and exponent_bit_pct are computed over MODELLED tensors only. If unmodelled_types is non-empty the census does not describe the whole file."
+  }
+}

@@ -1,0 +1,59 @@
+2400 injections across 5 files
+catastrophic: 155, 6.46% [5.54, 7.51]   non-finite: 17
+
+EVERY catastrophic injection landed in fp16_scale_exponent. 155 of 155. The other 1900 injections produced none.
+
+TABLE 4. Severity by structural role.
+role                      n  blast  catas%         95% CI  changed  ppl med    ppl p95    ppl max
+-------------------------------------------------------------------------------------------------
+fp16_scale_exponent     500     33   31.0%   [27.1, 35.2]      73%    1.000   3.11e+24   5.09e+86
+fp16_scale_sign         500     37    0.0%     [0.0, 0.8]      52%    1.000      1.004      1.007
+fp16_scale_mantissa     500     32    0.0%     [0.0, 0.8]      41%    1.000      1.004      1.007
+packed_scale            200     32    0.0%     [0.0, 1.9]      69%    0.998      1.003      1.005
+int_scale               200     16    0.0%     [0.0, 1.9]      76%    0.998      1.001      1.005
+payload                 500      1    0.0%     [0.0, 0.8]      50%    1.000      1.004      1.008
+
+'changed' is the share where any token prediction moved at all, catastrophic or
+not. It is high everywhere, which is the point: perturbation is common and
+consequence is rare.
+
+TABLE 5. Within the exponent, which bit.
+ exp bit     scale x     n  catas   catas%          95% CI
+----------------------------------------------------------
+       4        2^16    97     94    96.9%    [91.3, 98.9]
+       3         2^8   117     61    52.1%    [43.2, 61.0]
+       2         2^4   112      0     0.0%      [0.0, 3.3]
+       1         2^2   107      0     0.0%      [0.0, 3.5]
+       0         2^1    67      0     0.0%      [0.0, 5.4]
+
+The top 2 exponent bits: 155/214 catastrophic, 72.4% [66.1, 78.0].
+The remaining 3: 0/286.
+
+TABLE 6. Sampling audit. Which block types drew enough exponent sites to be
+estimable at all. THIS IS THE TABLE THAT SAYS WHAT MAY BE QUOTED.
+block          n  n_exp  catas  P(cat|exp)          95% CI  estimable
+---------------------------------------------------------------------
+Q8_0        1217    294    103       35.0%    [29.8, 40.6]  yes
+Q4_0         270     70     17       24.3%    [15.8, 35.5]  yes
+Q5_0         246     66     17       25.8%    [16.7, 37.4]  yes
+IQ4_NL       238     64     17       26.6%    [17.3, 38.5]  yes
+Q5_1           3      3      1       33.3%     [6.1, 79.2]  NO, too few exponent sites
+Q6_K         212      2      0        0.0%     [0.0, 65.8]  NO, too few exponent sites
+IQ4_XS        95      1      0        0.0%     [0.0, 79.3]  NO, too few exponent sites
+Q5_K          14      0      0        nan%      [nan, nan]  NO, too few exponent sites
+Q4_K         105      0      0        nan%      [nan, nan]  NO, too few exponent sites
+
+TABLE 7. Per-file exposure, the comparison the design supports.
+predicted rate = (share of bits that are fp16 exponent) x P(catastrophic | exponent)
+file        expo%   wide%  n_exp  P(cat|exp)  predicted            95% CI  protect top2
+---------------------------------------------------------------------------------------
+Q4_0       2.789%  8.925%    100       31.0%    0.8646%  [0.6353, 1.1331]        1.116%
+IQ4_XS     2.302%  8.165%    100       31.0%    0.7135%  [0.5243, 0.9351]        0.921%
+Q4_K_M     2.040%  7.989%    100       30.0%    0.6120%  [0.4466, 0.8075]        0.816%
+Q8_0       1.838%  5.882%    100       33.0%    0.6066%  [0.4515, 0.7848]        0.735%
+Q6_K       1.574%  6.344%    100       30.0%    0.4721%  [0.3445, 0.6229]        0.629%
+
+Spread: Q4_0 is 1.83x more exposed than Q6_K, on files that differ in size by less than a factor of two.
+'protect top2' is the share of the file that would have to be hardened to
+remove essentially all catastrophic exposure, if the top two exponent bits
+carry it. That is the number the mitigation argument rests on.

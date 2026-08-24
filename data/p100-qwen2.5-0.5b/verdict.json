@@ -1,0 +1,26 @@
+{
+  "within_backend_floor_cpu": 0.0,
+  "within_backend_floor_gpu": 0.0,
+  "sweep_is_answerable": true,
+  "cuda_available": true,
+  "h3_testable": true,
+  "seconds_per_measurement_cpu": 0.96,
+  "seconds_per_measurement_gpu": 0.72,
+  "estimated_sweep_minutes_cpu": 14.4,
+  "estimated_sweep_minutes_gpu": 10.8,
+  "nvml_energy_counter_supported": false,
+  "cross_backend_divergence": {
+    "IQ4_XS": 0.0,
+    "Q4_0": 0.0,
+    "Q4_K_M": 0.0,
+    "Q6_K": 0.0,
+    "Q8_0": 0.0
+  },
+  "cross_backend_first_divergence": {
+    "IQ4_XS": null,
+    "Q4_0": null,
+    "Q4_K_M": null,
+    "Q6_K": null,
+    "Q8_0": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "round": 3,
+  "models": {
+    "0.5B": "Qwen/Qwen2.5-0.5B-Instruct via the round-2 pre-flight",
+    "1.5B": "Qwen/Qwen2.5-1.5B-Instruct, quantized in this kernel"
+  },
+  "quota": {
+    "fp16_scale_exponent": 100,
+    "fp16_scale_sign": 25,
+    "fp16_scale_mantissa": 25,
+    "packed_scale": 25,
+    "int_scale": 25,
+    "payload": 25
+  },
+  "seed": 11,
+  "min_blocks": 64,
+  "by_block_type": true,
+  "probe": "The memory bandwidth of a system determines how quickly weights can be streamed. When a model is quantized, several weights share one scale factor. A single bit flip in that scale changes every weight in the block at once. The question is whether the model notices. Large networks tolerate small perturbations because they are statistically redundant, but that tolerance is incidental rather than designed, and it does not extend to every part of the representation equally. Measurement is the only way to tell which parts matter.",
+  "gpu_layers": 99
+}

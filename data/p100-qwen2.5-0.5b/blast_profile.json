@@ -1,0 +1,245 @@
+{
+  "Q4_0": {
+    "name": "Q4_0",
+    "block_bytes": 18,
+    "weights": 32,
+    "bits_per_weight": 4.5,
+    "total_bits": 144,
+    "wide_bits": 16,
+    "max_blast": 32,
+    "exponent_bits": 5,
+    "mean_blast": 4.4444,
+    "by_kind": {
+      "fp16_scale": 16,
+      "payload": 128
+    },
+    "wide_bit_pct": 11.111,
+    "exponent_bit_pct": 3.472
+  },
+  "Q8_0": {
+    "name": "Q8_0",
+    "block_bytes": 34,
+    "weights": 32,
+    "bits_per_weight": 8.5,
+    "total_bits": 272,
+    "wide_bits": 16,
+    "max_blast": 32,
+    "exponent_bits": 5,
+    "mean_blast": 2.8235,
+    "by_kind": {
+      "fp16_scale": 16,
+      "payload": 256
+    },
+    "wide_bit_pct": 5.882,
+    "exponent_bit_pct": 1.838
+  },
+  "Q4_1": {
+    "name": "Q4_1",
+    "block_bytes": 20,
+    "weights": 32,
+    "bits_per_weight": 5.0,
+    "total_bits": 160,
+    "wide_bits": 32,
+    "max_blast": 32,
+    "exponent_bits": 10,
+    "mean_blast": 7.2,
+    "by_kind": {
+      "fp16_scale": 32,
+      "payload": 128
+    },
+    "wide_bit_pct": 20.0,
+    "exponent_bit_pct": 6.25
+  },
+  "Q5_0": {
+    "name": "Q5_0",
+    "block_bytes": 22,
+    "weights": 32,
+    "bits_per_weight": 5.5,
+    "total_bits": 176,
+    "wide_bits": 16,
+    "max_blast": 32,
+    "exponent_bits": 5,
+    "mean_blast": 3.8182,
+    "by_kind": {
+      "fp16_scale": 16,
+      "payload": 160
+    },
+    "wide_bit_pct": 9.091,
+    "exponent_bit_pct": 2.841
+  },
+  "Q5_1": {
+    "name": "Q5_1",
+    "block_bytes": 24,
+    "weights": 32,
+    "bits_per_weight": 6.0,
+    "total_bits": 192,
+    "wide_bits": 32,
+    "max_blast": 32,
+    "exponent_bits": 10,
+    "mean_blast": 6.1667,
+    "by_kind": {
+      "fp16_scale": 32,
+      "payload": 160
+    },
+    "wide_bit_pct": 16.667,
+    "exponent_bit_pct": 5.208
+  },
+  "Q8_1": {
+    "name": "Q8_1",
+    "block_bytes": 36,
+    "weights": 32,
+    "bits_per_weight": 9.0,
+    "total_bits": 288,
+    "wide_bits": 32,
+    "max_blast": 32,
+    "exponent_bits": 10,
+    "mean_blast": 4.4444,
+    "by_kind": {
+      "fp16_scale": 32,
+      "payload": 256
+    },
+    "wide_bit_pct": 11.111,
+    "exponent_bit_pct": 3.472
+  },
+  "IQ4_NL": {
+    "name": "IQ4_NL",
+    "block_bytes": 18,
+    "weights": 32,
+    "bits_per_weight": 4.5,
+    "total_bits": 144,
+    "wide_bits": 16,
+    "max_blast": 32,
+    "exponent_bits": 5,
+    "mean_blast": 4.4444,
+    "by_kind": {
+      "fp16_scale": 16,
+      "payload": 128
+    },
+    "wide_bit_pct": 11.111,
+    "exponent_bit_pct": 3.472
+  },
+  "Q2_K": {
+    "name": "Q2_K",
+    "block_bytes": 84,
+    "weights": 256,
+    "bits_per_weight": 2.625,
+    "total_bits": 672,
+    "wide_bits": 160,
+    "max_blast": 256,
+    "exponent_bits": 10,
+    "mean_blast": 16.0,
+    "by_kind": {
+      "packed_scale": 128,
+      "payload": 512,
+      "fp16_scale": 32
+    },
+    "wide_bit_pct": 23.81,
+    "exponent_bit_pct": 1.488
+  },
+  "Q3_K": {
+    "name": "Q3_K",
+    "block_bytes": 110,
+    "weights": 256,
+    "bits_per_weight": 3.4375,
+    "total_bits": 880,
+    "wide_bits": 112,
+    "max_blast": 256,
+    "exponent_bits": 5,
+    "mean_blast": 7.2727,
+    "by_kind": {
+      "payload": 768,
+      "packed_scale": 96,
+      "fp16_scale": 16
+    },
+    "wide_bit_pct": 12.727,
+    "exponent_bit_pct": 0.568
+  },
+  "Q4_K": {
+    "name": "Q4_K",
+    "block_bytes": 144,
+    "weights": 256,
+    "bits_per_weight": 4.5,
+    "total_bits": 1152,
+    "wide_bits": 128,
+    "max_blast": 256,
+    "exponent_bits": 10,
+    "mean_blast": 10.6667,
+    "by_kind": {
+      "fp16_scale": 32,
+      "packed_scale": 96,
+      "payload": 1024
+    },
+    "wide_bit_pct": 11.111,
+    "exponent_bit_pct": 0.868
+  },
+  "Q5_K": {
+    "name": "Q5_K",
+    "block_bytes": 176,
+    "weights": 256,
+    "bits_per_weight": 5.5,
+    "total_bits": 1408,
+    "wide_bits": 128,
+    "max_blast": 256,
+    "exponent_bits": 10,
+    "mean_blast": 8.9091,
+    "by_kind": {
+      "fp16_scale": 32,
+      "packed_scale": 96,
+      "payload": 1280
+    },
+    "wide_bit_pct": 9.091,
+    "exponent_bit_pct": 0.71
+  },
+  "Q6_K": {
+    "name": "Q6_K",
+    "block_bytes": 210,
+    "weights": 256,
+    "bits_per_weight": 6.5625,
+    "total_bits": 1680,
+    "wide_bits": 144,
+    "max_blast": 256,
+    "exponent_bits": 5,
+    "mean_blast": 4.5714,
+    "by_kind": {
+      "payload": 1536,
+      "int_scale": 128,
+      "fp16_scale": 16
+    },
+    "wide_bit_pct": 8.571,
+    "exponent_bit_pct": 0.298
+  },
+  "IQ4_XS": {
+    "name": "IQ4_XS",
+    "block_bytes": 136,
+    "weights": 256,
+    "bits_per_weight": 4.25,
+    "total_bits": 1088,
+    "wide_bits": 64,
+    "max_blast": 256,
+    "exponent_bits": 5,
+    "mean_blast": 6.1176,
+    "by_kind": {
+      "fp16_scale": 16,
+      "packed_scale": 48,
+      "payload": 1024
+    },
+    "wide_bit_pct": 5.882,
+    "exponent_bit_pct": 0.46
+  },
+  "F16": {
+    "name": "F16",
+    "block_bytes": 2,
+    "weights": 1,
+    "bits_per_weight": 16.0,
+    "total_bits": 16,
+    "wide_bits": 0,
+    "max_blast": 1,
+    "exponent_bits": 5,
+    "mean_blast": 1.0,
+    "by_kind": {
+      "fp16_scale": 16
+    },
+    "wide_bit_pct": 0.0,
+    "exponent_bit_pct": 31.25
+  }
+}

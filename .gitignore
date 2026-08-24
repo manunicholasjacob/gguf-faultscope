@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.claude/
+CLAUDE.md
+*.gguf
+*.repair
+# except the campaign repair logs: analyze_guard.py recovers the pre-injection
+# byte from them, so without these the mitigation result is not reproducible.
+!data/**/*.repair
+.venv/

@@ -1,0 +1,162 @@
+{
+  "IQ4_XS": {
+    "cpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 53.863283,
+      "clean_nll": 3.986449,
+      "n_positions": 97,
+      "mean_load_s": 0.66,
+      "mean_eval_s": 0.216
+    },
+    "gpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 53.863283,
+      "clean_nll": 3.986449,
+      "n_positions": 97,
+      "mean_load_s": 0.572,
+      "mean_eval_s": 0.136
+    },
+    "cpu_vs_gpu": {
+      "top1_diff_count": 0,
+      "top1_diff_rate": 0.0,
+      "first_divergence_position": null,
+      "delta_nll": 0.0,
+      "ppl_ratio": 1.0,
+      "non_finite": false
+    }
+  },
+  "Q4_0": {
+    "cpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 55.341552,
+      "clean_nll": 4.013524,
+      "n_positions": 97,
+      "mean_load_s": 0.673,
+      "mean_eval_s": 0.192
+    },
+    "gpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 55.341552,
+      "clean_nll": 4.013524,
+      "n_positions": 97,
+      "mean_load_s": 0.56,
+      "mean_eval_s": 0.137
+    },
+    "cpu_vs_gpu": {
+      "top1_diff_count": 0,
+      "top1_diff_rate": 0.0,
+      "first_divergence_position": null,
+      "delta_nll": 0.0,
+      "ppl_ratio": 1.0,
+      "non_finite": false
+    }
+  },
+  "Q4_K_M": {
+    "cpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 46.69029,
+      "clean_nll": 3.843536,
+      "n_positions": 97,
+      "mean_load_s": 0.701,
+      "mean_eval_s": 0.19
+    },
+    "gpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 46.69029,
+      "clean_nll": 3.843536,
+      "n_positions": 97,
+      "mean_load_s": 0.582,
+      "mean_eval_s": 0.135
+    },
+    "cpu_vs_gpu": {
+      "top1_diff_count": 0,
+      "top1_diff_rate": 0.0,
+      "first_divergence_position": null,
+      "delta_nll": 0.0,
+      "ppl_ratio": 1.0,
+      "non_finite": false
+    }
+  },
+  "Q6_K": {
+    "cpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 49.095028,
+      "clean_nll": 3.893758,
+      "n_positions": 97,
+      "mean_load_s": 0.739,
+      "mean_eval_s": 0.195
+    },
+    "gpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 49.095028,
+      "clean_nll": 3.893758,
+      "n_positions": 97,
+      "mean_load_s": 0.584,
+      "mean_eval_s": 0.133
+    },
+    "cpu_vs_gpu": {
+      "top1_diff_count": 0,
+      "top1_diff_rate": 0.0,
+      "first_divergence_position": null,
+      "delta_nll": 0.0,
+      "ppl_ratio": 1.0,
+      "non_finite": false
+    }
+  },
+  "Q8_0": {
+    "cpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 49.153671,
+      "clean_nll": 3.894952,
+      "n_positions": 97,
+      "mean_load_s": 0.765,
+      "mean_eval_s": 0.198
+    },
+    "gpu": {
+      "repeats": 3,
+      "top1_diff_rate": 0.0,
+      "delta_nll": 0.0,
+      "deterministic": true,
+      "clean_ppl": 49.153671,
+      "clean_nll": 3.894952,
+      "n_positions": 97,
+      "mean_load_s": 0.572,
+      "mean_eval_s": 0.131
+    },
+    "cpu_vs_gpu": {
+      "top1_diff_count": 0,
+      "top1_diff_rate": 0.0,
+      "first_divergence_position": null,
+      "delta_nll": 0.0,
+      "ppl_ratio": 1.0,
+      "non_finite": false
+    }
+  }
+}

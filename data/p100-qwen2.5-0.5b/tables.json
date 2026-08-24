@@ -1,0 +1,358 @@
+{
+  "n": 2400,
+  "by_stratum": [
+    {
+      "stratum": "fp16_scale_exponent",
+      "n": 500,
+      "mean_blast": 33.344,
+      "catastrophic": 155,
+      "cat_pct": 31.0,
+      "cat_lo": 27.103822626974466,
+      "cat_hi": 35.18591287719986,
+      "any_change_pct": 72.6,
+      "ppl_median": 1.00017,
+      "ppl_p95": 3.1117518555621847e+24,
+      "ppl_max": 5.086448029274472e+86,
+      "non_finite": 17
+    },
+    {
+      "stratum": "fp16_scale_sign",
+      "n": 500,
+      "mean_blast": 37.376,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 0.7624618530903362,
+      "any_change_pct": 51.8,
+      "ppl_median": 1.0,
+      "ppl_p95": 1.004115,
+      "ppl_max": 1.006626,
+      "non_finite": 0
+    },
+    {
+      "stratum": "fp16_scale_mantissa",
+      "n": 500,
+      "mean_blast": 32.0,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 0.7624618530903362,
+      "any_change_pct": 41.2,
+      "ppl_median": 1.0,
+      "ppl_p95": 1.003579,
+      "ppl_max": 1.00665,
+      "non_finite": 0
+    },
+    {
+      "stratum": "packed_scale",
+      "n": 200,
+      "mean_blast": 32.0,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 1.8846005918320894,
+      "any_change_pct": 69.0,
+      "ppl_median": 0.9984845,
+      "ppl_p95": 1.003166,
+      "ppl_max": 1.004902,
+      "non_finite": 0
+    },
+    {
+      "stratum": "int_scale",
+      "n": 200,
+      "mean_blast": 16.0,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 1.8846005918320894,
+      "any_change_pct": 76.0,
+      "ppl_median": 0.9981105,
+      "ppl_p95": 1.001468,
+      "ppl_max": 1.005176,
+      "non_finite": 0
+    },
+    {
+      "stratum": "payload",
+      "n": 500,
+      "mean_blast": 1.0,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 0.7624618530903362,
+      "any_change_pct": 49.8,
+      "ppl_median": 1.0,
+      "ppl_p95": 1.00396,
+      "ppl_max": 1.007607,
+      "non_finite": 0
+    }
+  ],
+  "by_exponent_bit": [
+    {
+      "byte_bit": 6,
+      "exponent_bit": 4,
+      "scale_factor": 65536,
+      "n": 97,
+      "catastrophic": 94,
+      "cat_pct": 96.90721649484536,
+      "cat_lo": 91.29785098835845,
+      "cat_hi": 98.9426846635947
+    },
+    {
+      "byte_bit": 5,
+      "exponent_bit": 3,
+      "scale_factor": 256,
+      "n": 117,
+      "catastrophic": 61,
+      "cat_pct": 52.13675213675214,
+      "cat_lo": 43.161781224855794,
+      "cat_hi": 60.97586673743535
+    },
+    {
+      "byte_bit": 4,
+      "exponent_bit": 2,
+      "scale_factor": 16,
+      "n": 112,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 3.3162525379483707
+    },
+    {
+      "byte_bit": 3,
+      "exponent_bit": 1,
+      "scale_factor": 4,
+      "n": 107,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 3.4658467578959518
+    },
+    {
+      "byte_bit": 2,
+      "exponent_bit": 0,
+      "scale_factor": 2,
+      "n": 67,
+      "catastrophic": 0,
+      "cat_pct": 0.0,
+      "cat_lo": 0.0,
+      "cat_hi": 5.422802421176257
+    }
+  ],
+  "sampling_audit": [
+    {
+      "block_type": "Q8_0",
+      "n_total": 1217,
+      "n_exponent": 294,
+      "catastrophic": 103,
+      "p_cat_given_exponent": 35.034013605442176,
+      "lo": 29.80545516579492,
+      "hi": 40.64863855381981,
+      "estimable": true,
+      "strata": {
+        "fp16_scale_sign": 297,
+        "fp16_scale_exponent": 294,
+        "fp16_scale_mantissa": 328,
+        "payload": 298
+      }
+    },
+    {
+      "block_type": "Q4_0",
+      "n_total": 270,
+      "n_exponent": 70,
+      "catastrophic": 17,
+      "p_cat_given_exponent": 24.285714285714285,
+      "lo": 15.751732611923112,
+      "hi": 35.49526095268004,
+      "estimable": true,
+      "strata": {
+        "fp16_scale_sign": 73,
+        "fp16_scale_exponent": 70,
+        "fp16_scale_mantissa": 64,
+        "payload": 63
+      }
+    },
+    {
+      "block_type": "Q5_0",
+      "n_total": 246,
+      "n_exponent": 66,
+      "catastrophic": 17,
+      "p_cat_given_exponent": 25.757575757575758,
+      "lo": 16.748707345896683,
+      "hi": 37.43332742993892,
+      "estimable": true,
+      "strata": {
+        "fp16_scale_sign": 59,
+        "fp16_scale_exponent": 66,
+        "fp16_scale_mantissa": 54,
+        "payload": 67
+      }
+    },
+    {
+      "block_type": "IQ4_NL",
+      "n_total": 238,
+      "n_exponent": 64,
+      "catastrophic": 17,
+      "p_cat_given_exponent": 26.5625,
+      "lo": 17.296238569537763,
+      "hi": 38.48310625723519,
+      "estimable": true,
+      "strata": {
+        "fp16_scale_sign": 59,
+        "fp16_scale_exponent": 64,
+        "fp16_scale_mantissa": 54,
+        "payload": 61
+      }
+    },
+    {
+      "block_type": "Q5_1",
+      "n_total": 3,
+      "n_exponent": 3,
+      "catastrophic": 1,
+      "p_cat_given_exponent": 33.33333333333333,
+      "lo": 6.14903152761605,
+      "hi": 79.23450448735122,
+      "estimable": false,
+      "strata": {
+        "fp16_scale_exponent": 3
+      }
+    },
+    {
+      "block_type": "Q6_K",
+      "n_total": 212,
+      "n_exponent": 2,
+      "catastrophic": 0,
+      "p_cat_given_exponent": 0.0,
+      "lo": 0.0,
+      "hi": 65.76280471103807,
+      "estimable": false,
+      "strata": {
+        "fp16_scale_sign": 6,
+        "fp16_scale_exponent": 2,
+        "int_scale": 200,
+        "payload": 4
+      }
+    },
+    {
+      "block_type": "IQ4_XS",
+      "n_total": 95,
+      "n_exponent": 1,
+      "catastrophic": 0,
+      "p_cat_given_exponent": 0.0,
+      "lo": 0.0,
+      "hi": 79.34567085261071,
+      "estimable": false,
+      "strata": {
+        "fp16_scale_sign": 3,
+        "fp16_scale_exponent": 1,
+        "packed_scale": 87,
+        "payload": 4
+      }
+    },
+    {
+      "block_type": "Q5_K",
+      "n_total": 14,
+      "n_exponent": 0,
+      "catastrophic": 0,
+      "p_cat_given_exponent": NaN,
+      "lo": NaN,
+      "hi": NaN,
+      "estimable": false,
+      "strata": {
+        "fp16_scale_sign": 1,
+        "packed_scale": 13
+      }
+    },
+    {
+      "block_type": "Q4_K",
+      "n_total": 105,
+      "n_exponent": 0,
+      "catastrophic": 0,
+      "p_cat_given_exponent": NaN,
+      "lo": NaN,
+      "hi": NaN,
+      "estimable": false,
+      "strata": {
+        "fp16_scale_sign": 2,
+        "packed_scale": 100,
+        "payload": 3
+      }
+    }
+  ],
+  "per_file": [
+    {
+      "file": "Q4_0",
+      "n_total": 400,
+      "n_exponent": 100,
+      "catastrophic_in_exponent": 31,
+      "p_cat_given_exponent": 31.0,
+      "lo": 22.779563206132377,
+      "hi": 40.62623947795569,
+      "exponent_bit_pct": 2.789,
+      "wide_bit_pct": 8.9248,
+      "predicted_rate_pct": 0.8645900000000001,
+      "predicted_lo": 0.6353220178190321,
+      "predicted_hi": 1.1330658190401843,
+      "top2_bit_pct": 1.1156000000000001
+    },
+    {
+      "file": "IQ4_XS",
+      "n_total": 500,
+      "n_exponent": 100,
+      "catastrophic_in_exponent": 31,
+      "p_cat_given_exponent": 31.0,
+      "lo": 22.779563206132377,
+      "hi": 40.62623947795569,
+      "exponent_bit_pct": 2.3017,
+      "wide_bit_pct": 8.1645,
+      "predicted_rate_pct": 0.713527,
+      "predicted_lo": 0.5243172063155489,
+      "predicted_hi": 0.9350941540641061,
+      "top2_bit_pct": 0.9206799999999999
+    },
+    {
+      "file": "Q4_K_M",
+      "n_total": 600,
+      "n_exponent": 100,
+      "catastrophic_in_exponent": 30,
+      "p_cat_given_exponent": 30.0,
+      "lo": 21.89475386622812,
+      "hi": 39.585038432811956,
+      "exponent_bit_pct": 2.0399,
+      "wide_bit_pct": 7.9886,
+      "predicted_rate_pct": 0.6119699999999999,
+      "predicted_lo": 0.4466310841171873,
+      "predicted_hi": 0.807495198990931,
+      "top2_bit_pct": 0.8159599999999999
+    },
+    {
+      "file": "Q8_0",
+      "n_total": 400,
+      "n_exponent": 100,
+      "catastrophic_in_exponent": 33,
+      "p_cat_given_exponent": 33.0,
+      "lo": 24.56298379389545,
+      "hi": 42.69483966028862,
+      "exponent_bit_pct": 1.8382,
+      "wide_bit_pct": 5.8824,
+      "predicted_rate_pct": 0.606606,
+      "predicted_lo": 0.45151676809938623,
+      "predicted_hi": 0.7848165426354256,
+      "top2_bit_pct": 0.73528
+    },
+    {
+      "file": "Q6_K",
+      "n_total": 500,
+      "n_exponent": 100,
+      "catastrophic_in_exponent": 30,
+      "p_cat_given_exponent": 30.0,
+      "lo": 21.89475386622812,
+      "hi": 39.585038432811956,
+      "exponent_bit_pct": 1.5736,
+      "wide_bit_pct": 6.3443,
+      "predicted_rate_pct": 0.47208000000000006,
+      "predicted_lo": 0.3445358468389657,
+      "predicted_hi": 0.622910164778729,
+      "top2_bit_pct": 0.62944
+    }
+  ]
+}

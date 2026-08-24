@@ -1,0 +1,298 @@
+{
+  "IQ4_XS": {
+    "total_sites": 925,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "IQ4_NL",
+        "blocks": 7827456,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "IQ4_XS",
+        "blocks": 357504,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "packed_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q5_1",
+        "blocks": 86016,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q5_K",
+        "blocks": 51072,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "packed_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q8_0",
+        "blocks": 4254208,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "IQ4_NL",
+      "IQ4_XS",
+      "Q5_1",
+      "Q5_K",
+      "Q8_0"
+    ],
+    "not_estimable": []
+  },
+  "Q4_0": {
+    "total_sites": 350,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q4_0",
+        "blocks": 11182080,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q8_0",
+        "blocks": 4254208,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q4_0",
+      "Q8_0"
+    ],
+    "not_estimable": []
+  },
+  "Q4_K_M": {
+    "total_sites": 750,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q4_K",
+        "blocks": 204288,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "packed_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q5_0",
+        "blocks": 7870464,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q6_K",
+        "blocks": 204288,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "int_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q8_0",
+        "blocks": 4297216,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q4_K",
+      "Q5_0",
+      "Q6_K",
+      "Q8_0"
+    ],
+    "not_estimable": []
+  },
+  "Q6_K": {
+    "total_sites": 375,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q6_K",
+        "blocks": 408576,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "int_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q8_0",
+        "blocks": 12167680,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q6_K",
+      "Q8_0"
+    ],
+    "not_estimable": []
+  },
+  "Q8_0": {
+    "total_sites": 175,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q8_0",
+        "blocks": 15436288,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q8_0"
+    ],
+    "not_estimable": []
+  }
+}

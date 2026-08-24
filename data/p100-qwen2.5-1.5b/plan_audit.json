@@ -1,0 +1,230 @@
+{
+  "Q4_0": {
+    "total_sites": 375,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q4_0",
+        "blocks": 40943616,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q6_K",
+        "blocks": 911616,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "int_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q4_0",
+      "Q6_K"
+    ],
+    "not_estimable": []
+  },
+  "Q4_K_M": {
+    "total_sites": 400,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q4_K",
+        "blocks": 4343808,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "packed_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q6_K",
+        "blocks": 1685760,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "int_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q4_K",
+      "Q6_K"
+    ],
+    "not_estimable": []
+  },
+  "IQ4_XS": {
+    "total_sites": 600,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "IQ4_XS",
+        "blocks": 4913664,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "packed_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q5_K",
+        "blocks": 204288,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "packed_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      },
+      {
+        "block_type": "Q6_K",
+        "blocks": 911616,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "int_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "IQ4_XS",
+      "Q5_K",
+      "Q6_K"
+    ],
+    "not_estimable": []
+  },
+  "Q6_K": {
+    "total_sites": 200,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q6_K",
+        "blocks": 6029568,
+        "sites": 200,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "int_scale": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q6_K"
+    ],
+    "not_estimable": []
+  },
+  "Q8_0": {
+    "total_sites": 175,
+    "n_per_cell": {
+      "fp16_scale_exponent": 100,
+      "fp16_scale_sign": 25,
+      "fp16_scale_mantissa": 25,
+      "packed_scale": 25,
+      "int_scale": 25,
+      "payload": 25
+    },
+    "by_block_type": true,
+    "min_blocks": 64,
+    "cells": [
+      {
+        "block_type": "Q8_0",
+        "blocks": 48236544,
+        "sites": 175,
+        "strata": {
+          "fp16_scale_sign": 25,
+          "fp16_scale_exponent": 100,
+          "fp16_scale_mantissa": 25,
+          "payload": 25
+        },
+        "exponent_sites": 100,
+        "estimable": true
+      }
+    ],
+    "skipped_block_types": [],
+    "estimable_block_types": [
+      "Q8_0"
+    ],
+    "not_estimable": []
+  }
+}

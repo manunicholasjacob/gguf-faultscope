@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "gguf-faultscope injection record",
+  "type": "object",
+  "required": [
+    "site",
+    "divergence",
+    "catastrophic"
+  ],
+  "properties": {
+    "site": {
+      "type": "object",
+      "required": [
+        "abs_offset",
+        "bit",
+        "tensor",
+        "tensor_type",
+        "block_index",
+        "field",
+        "stratum",
+        "blast"
+      ],
+      "properties": {
+        "abs_offset": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "byte offset from the start of the GGUF file"
+        },
+        "bit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 7,
+          "description": "bit within that byte, least significant first"
+        },
+        "tensor": {
+          "type": "string"
+        },
+        "tensor_type": {
+          "type": "string",
+          "description": "ggml block type, which is not always the file's label"
+        },
+        "block_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "field": {
+          "type": "string",
+          "description": "field within the block layout, for example d, dmin, scales, qs"
+        },
+        "stratum": {
+          "enum": [
+            "fp16_scale_sign",
+            "fp16_scale_exponent",
+            "fp16_scale_mantissa",
+            "packed_scale",
+            "int_scale",
+            "payload"
+          ]
+        },
+        "blast": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "weights whose dequantized value changes, from the layout"
+        }
+      }
+    },
+    "divergence": {
+      "type": "object",
+      "required": [
+        "top1_diff_rate",
+        "non_finite"
+      ],
+      "properties": {
+        "top1_diff_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "top1_diff_rate": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "first_divergence_position": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "delta_nll": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "nats, corrupted minus clean"
+        },
+        "ppl_ratio": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "corrupted perplexity over clean; spans 1 to 1e86 and infinity"
+        },
+        "non_finite": {
+          "type": "boolean"
+        }
+      }
+    },
+    "catastrophic": {
+      "type": "boolean",
+      "description": "non-finite logits, OR perplexity at least doubled, OR top-1 divergence above three times the measured determinism floor. Threshold fixed before the data was seen."
+    },
+    "dirty": {
+      "type": "object",
+      "properties": {
+        "nll": {
+          "type": "number"
+        },
+        "ppl": {
+          "type": "number"
+        },
+        "finite": {
+          "type": "boolean"
+        },
+        "n_positions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "load_s": {
+          "type": "number"
+        },
+        "eval_s": {
+          "type": "number"
+        },
+        "argmax_digest": {
+          "type": "string",
+          "description": "short hash of the predicted token sequence"
+        }
+      }
+    }
+  }
+}

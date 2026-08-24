@@ -1,0 +1,106 @@
+{
+  "stage": [
+    {
+      "stage": "inputs",
+      "modules": "/kaggle/input/datasets/manunicholasjacob/sdc-faultscope",
+      "formats": [
+        "IQ4_XS",
+        "Q4_0",
+        "Q4_K_M",
+        "Q6_K",
+        "Q8_0"
+      ],
+      "answerable": true,
+      "cuda": true
+    },
+    {
+      "stage": "staged",
+      "formats": [
+        "IQ4_XS",
+        "Q4_0",
+        "Q4_K_M",
+        "Q6_K",
+        "Q8_0"
+      ]
+    },
+    {
+      "stage": "scorer",
+      "llama_cpp": "0.3.35",
+      "gpu_offload": true
+    },
+    {
+      "stage": "census",
+      "wide": {
+        "IQ4_XS": 8.1645,
+        "Q4_0": 8.9248,
+        "Q4_K_M": 7.9886,
+        "Q6_K": 6.3443,
+        "Q8_0": 5.8824
+      },
+      "leftover": {
+        "IQ4_XS": {
+          "F32": 121
+        },
+        "Q4_0": {
+          "F32": 121
+        },
+        "Q4_K_M": {
+          "F32": 121
+        },
+        "Q6_K": {
+          "F32": 121
+        },
+        "Q8_0": {
+          "F32": 121
+        }
+      }
+    },
+    {
+      "stage": "sweep",
+      "format": "Q8_0",
+      "injections": 400,
+      "catastrophic": 33,
+      "elapsed_min": 7.4
+    },
+    {
+      "stage": "sweep",
+      "format": "Q6_K",
+      "injections": 500,
+      "catastrophic": 30,
+      "elapsed_min": 14.5
+    },
+    {
+      "stage": "sweep",
+      "format": "Q4_K_M",
+      "injections": 600,
+      "catastrophic": 30,
+      "elapsed_min": 22.9
+    },
+    {
+      "stage": "sweep",
+      "format": "Q4_0",
+      "injections": 400,
+      "catastrophic": 31,
+      "elapsed_min": 28.8
+    },
+    {
+      "stage": "sweep",
+      "format": "IQ4_XS",
+      "injections": 500,
+      "catastrophic": 31,
+      "elapsed_min": 36.0
+    },
+    {
+      "stage": "figures",
+      "formats": 9,
+      "strata": 6
+    },
+    {
+      "stage": "done",
+      "minutes": 36.1,
+      "injections": 2400,
+      "catastrophic": 155
+    }
+  ],
+  "errors": []
+}

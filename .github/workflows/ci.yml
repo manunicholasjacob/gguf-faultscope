@@ -1,0 +1,34 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  selftest:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Block layouts, the GGUF parser, and the range check
+        run: python src/gguf_faultscope.py --selftest
+      - name: Injection, classification, restore and repair
+        run: python src/gguf_inject.py --selftest
+      - name: The campaign driver end to end, no model needed
+        run: python src/run_study.py --dry-run --n 4 --out dry.jsonl
+      # The v2 campaign, not the first one: the first stratified by structural role alone and
+      # cannot carry a per-format number. See the README section on which campaign to quote.
+      - name: The analysis, on the shipped data
+        run: python src/make_tables.py --results data/p100-qwen2.5-0.5b-v2/ --census data/p100-qwen2.5-0.5b/faultscope_census.json
+      - name: The mitigation, scored against the shipped repair logs
+        run: python src/analyze_guard.py --results data/p100-qwen2.5-0.5b-v2/ --ranges data/p100-qwen2.5-0.5b/scale_ranges.json
+      - name: Every shipped record matches the published schema
+        run: python src/validate_data.py

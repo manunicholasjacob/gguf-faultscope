@@ -1,0 +1,61 @@
+{
+  "capabilities": {
+    "power_usage_mW": {
+      "value": 26838,
+      "error": null
+    },
+    "total_energy_mJ": {
+      "value": null,
+      "error": "NVMLError_NotSupported3"
+    },
+    "enforced_power_limit_mW": {
+      "value": 250000,
+      "error": null
+    },
+    "power_management_limit_mW": {
+      "value": 250000,
+      "error": null
+    },
+    "temperature_C": {
+      "value": 40,
+      "error": null
+    },
+    "ecc_mode": {
+      "value": [
+        1,
+        1
+      ],
+      "error": null
+    }
+  },
+  "rows": [
+    {
+      "hz": null,
+      "wall_s": 10.0,
+      "n": 0,
+      "mean_call_ms": null,
+      "W_sampled": null
+    },
+    {
+      "hz": 1,
+      "wall_s": 10.0,
+      "n": 10,
+      "mean_call_ms": 3.012,
+      "W_sampled": 26.737
+    },
+    {
+      "hz": 5,
+      "wall_s": 10.01,
+      "n": 50,
+      "mean_call_ms": 2.996,
+      "W_sampled": 26.653
+    },
+    {
+      "hz": 20,
+      "wall_s": 10.04,
+      "n": 200,
+      "mean_call_ms": 3.358,
+      "W_sampled": 26.637
+    }
+  ]
+}
