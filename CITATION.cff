@@ -1,6 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this tool, its exposure model or its data, please cite it."
 title: "gguf-faultscope: single-bit fault exposure of block-quantized language models"
+doi: "10.5281/zenodo.22163327"
 type: software
 authors:
   - family-names: "Jacob"
