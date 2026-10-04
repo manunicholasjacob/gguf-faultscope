@@ -7,6 +7,7 @@ authors:
   - family-names: "Jacob"
     given-names: "Manu Nicholas"
     orcid: "https://orcid.org/0009-0007-6589-6572"
+    affiliation: "Independent Researcher"
 repository-code: "https://github.com/manunicholasjacob/gguf-faultscope"
 url: "https://github.com/manunicholasjacob/gguf-faultscope"
 abstract: >-
