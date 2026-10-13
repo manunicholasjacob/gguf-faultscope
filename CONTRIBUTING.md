@@ -45,12 +45,12 @@ Then open a pull request with the JSONL, the `.meta.json` beside it, and one row
 
 ## Three things that will bite you if you skip them
 
-**Quantize from one source, in one session.** Files carrying the same format label behave
-differently depending on how they were made; same-label GGUFs of identical size have been
-measured decoding up to 38 percent apart. If you download a pre-made quantization from one
-repository and compare it against one from another, you are measuring provenance rather than
-format. `notebooks/preflight.ipynb` converts to F16 once and quantizes everything from that
-single file, which is why it builds `llama-quantize` rather than downloading.
+**Quantize from one source, in one session.** A pre-made quantization downloaded from one
+repository and another from a second repository can differ in converter version, importance
+matrix and per-tensor type choices, none of which the format label records. Comparing them
+mixes those differences into the result. `notebooks/preflight.ipynb` converts to F16 once and
+quantizes everything from that single file, which is why it builds `llama-quantize` rather
+than downloading.
 
 **Turn memory mapping off.** The runtime maps the weight file by default, so flipping a byte
 underneath a loaded model does something that depends on whether that page had already been
