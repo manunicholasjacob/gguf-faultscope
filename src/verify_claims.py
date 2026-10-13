@@ -166,7 +166,8 @@ def build(rows):
     add(("P(hard | exponent flip), dual-stratified",
          round(wilson(sum(hard(r) for r in de), len(de))[0], 1), 35.5))
 
-    # the tolerance boundary moves with model size: the finding, bit by bit
+    # per-bit hard-failure rates at each size: a record of what happened, not a model-size
+    # effect (two sizes from one family cannot separate size from per-tensor type choices)
     for camp, lbl, want in ((V2, "0.5B", {4: 99.0, 3: 62.8, 2: 2.1, 1: 0.0, 0: 0.0}),
                             (BIG, "1.5B", {4: 99.4, 3: 43.1, 2: 22.8, 1: 4.6, 0: 0.0})):
         g = collections.defaultdict(lambda: [0, 0])
@@ -179,7 +180,7 @@ def build(rows):
             n, k = g[eb]
             add((f"{lbl}, exponent bit {eb}, hard-failure rate",
                  round(wilson(k, n)[0], 1), w))
-    # and the non-overlap that makes it a finding rather than a trend
+    # and the bit-2 intervals do not overlap between the two campaigns
     a = [r for r in rows if r["_camp"] == V2 and r["site"]["stratum"] == "fp16_scale_exponent"
          and r["site"]["bit"] - 2 == 2]
     b = [r for r in rows if r["_camp"] == BIG and r["site"]["stratum"] == "fp16_scale_exponent"

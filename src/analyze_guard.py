@@ -220,7 +220,8 @@ def main() -> int:
     L.append("")
     L.append("This is measured on files whose true scale range was read. A range check cannot")
     L.append("be scored on a file whose range was never measured, and it should be re-scored on")
-    L.append("any new model size, because which exponent bits do damage moves with model size.")
+    L.append("any new model size, because which exponent bits did damage differed between the")
+    L.append("two sizes measured here.")
 
     print("\n".join(L))
     if a.json:

@@ -17,11 +17,11 @@ hard failures landed in the exponent field of a 16-bit scale. The other 3,925 pr
 including 2,150 into the sign and mantissa bits of the same scales, which reach the same
 weights. How far a bit reaches is not what decides whether it does damage.
 
-**Which exponent bits matter moves with model size.** A 256-fold change in one block's scale
-breaks the model about half the time at either size measured. A sixteenfold change is nearly
-harmless at 0.5B, at 2.1 percent [1.0, 4.6], and breaks the 1.5B model 22.8 percent of the time
-[17.2, 29.7]. The intervals do not overlap. That was the open question the repository was built
-to ask, and the answer is that the threshold moves down as the model grows.
+**Which exponent bits did damage differed between the two sizes** (paragraph corrected 13 Oct
+2026, see the correction below). A flip of exponent bit 3 breaks the model about half the time
+at either size measured. A flip of bit 2 does so at 0.5B 2.1 percent [1.0, 4.6] of the time and
+at 1.5B 22.8 percent [17.2, 29.7] of the time. The intervals do not overlap. Read these as what
+happened, not as evidence that tolerance falls with model size.
 
 **The format changes exposure thirteenfold at 1.5B**, against 2.6-fold at 0.5B, because a larger
 model actually receives the format it asked for. The 0.5B file labelled Q4_K_M held 132 tensors
@@ -37,9 +37,26 @@ failures and all 310 flips of that bit, with no redundancy at all.
 
 **Known limits.** Stored-weight corruption only, not compute-unit faults. Single bits. One model
 family at two sizes, one 97-position probe, one device. The 1.5B scale ranges were never
-measured, so the range check is scored on the 0.5B files alone, and the per-bit table says it
-will catch less on a larger model rather than more. The first campaign
+measured, so the range check is scored on the 0.5B files alone and has not been scored on a
+larger model. The first campaign
 (`data/p100-qwen2.5-0.5b`) stratified by structural role only and must not be used for any
 per-format number; it is kept because it carries the determinism floor and the scale ranges.
 
 Contributions of runs from other hardware are the point of the repository. See CONTRIBUTING.md.
+
+## Correction (13 Oct 2026, v0.1.2)
+
+The v0.1.0 notes, README and schema said that flipping exponent bit `i` multiplies or divides
+the block's scale by `2^(2^i)`, and read the per-bit table as "the threshold between absorbed
+and not absorbed moves down as the model grows". Both statements are withdrawn as written.
+
+- The `2^(2^i)` factor holds for a *normal* fp16 scale only. Many super-block scales in these
+  files are fp16 subnormals, for which the factor is larger and depends on the stored value.
+- The bit-2 and bit-1 failures at 1.5B are concentrated in one tensor whose block type differs
+  between the two model sizes. Two sizes from one family cannot separate model size from the
+  quantizer's per-tensor type choices, so the per-bit table is a record of what happened, not
+  evidence that tolerance falls with model size.
+
+No count, rate or interval in the per-bit table changes, and `src/verify_claims.py` checks the
+same values as before. Only the interpretation is corrected. The v0.1.0 and v0.1.1 archives on
+Zenodo keep the earlier wording because archived versions cannot be edited.

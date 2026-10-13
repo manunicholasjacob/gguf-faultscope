@@ -23,9 +23,10 @@ abstract: >-
   campaigns on a Tesla P100, all 955 hard failures landed in the exponent field of a scale and
   3,925 injections elsewhere produced none, including 2,150 into the sign and mantissa bits of the
   same scales, which reach the same weights. How far a bit reaches is not what decides whether it
-  does damage. Within the exponent, which bits matter moves with model size: a sixteenfold change
-  in one block's scale is nearly harmless at 0.5 billion parameters, at 2.1 percent, and breaks
-  the 1.5 billion parameter model 22.8 percent of the time, on non-overlapping intervals. The
+  does damage. Within the exponent, which bits did damage differed between the two sizes
+  measured, but two sizes from one family cannot separate model size from the quantizer's
+  per-tensor type choices, so the per-bit rates are a record of what happened rather than
+  evidence that tolerance falls with model size. The
   quantization format a file is built in changes its exposure 2.6-fold at 0.5 billion parameters
   and 13.5-fold at 1.5 billion, because a larger model actually receives the format it asked for
   rather than a fallback. Because a scale is a small number by construction the damaging
@@ -34,7 +35,7 @@ abstract: >-
   exponent bit, with no redundancy. The repository is built to be added to: the record schema, the
   plan audit and the device table exist so a run from other hardware is a pull request.
 license: MIT
-version: "0.1.1"
+version: "0.1.2"
 date-released: "2026-10-13"
 keywords:
   - silent data corruption

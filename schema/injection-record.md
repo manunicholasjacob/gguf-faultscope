@@ -43,8 +43,10 @@ Where the bit was, described so it can be found again without the tool.
 **Strata.** `fp16_scale_sign`, `fp16_scale_exponent`, `fp16_scale_mantissa`, `packed_scale`,
 `int_scale`, `payload`. The three fp16 strata split a 16-bit scale by IEEE binary16 field: bit
 15 sign, bits 14 to 10 exponent, bits 9 to 0 mantissa. Within the exponent the bit index
-matters and is recoverable: for a site in the high byte, exponent bit `i` is `bit - 2`, and
-flipping it changes the scale by `2^(2^i)`.
+matters and is recoverable: for a site in the high byte, exponent bit `i` is `bit - 2`.
+Flipping it multiplies or divides a *normal* scale by `2^(2^i)`. For a subnormal scale (biased
+exponent zero) the factor is larger and depends on the stored value, so the bit index alone
+does not give the size of the change.
 
 ## divergence
 

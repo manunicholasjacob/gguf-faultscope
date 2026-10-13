@@ -36,10 +36,12 @@ This table pools all three campaigns because it is not a per-format claim. Every
 per-bit number below is reported per campaign, for the reason given under "which campaign to
 quote".
 
-Inside the exponent it narrows further, and where it narrows to depends on the model. Flipping
-exponent bit `i` multiplies or divides the block's scale by `2^(2^i)`:
+Inside the exponent it narrows further. Flipping exponent bit `i` multiplies or divides a
+*normal* fp16 scale by `2^(2^i)`. Many super-block scales in these files are fp16 subnormals,
+for which the factor is larger and depends on the stored value, so the second column below is
+the factor for a normal scale only:
 
-| Exponent bit | Scale changes by | 0.5B, n | 0.5B hard failures | 1.5B, n | 1.5B hard failures |
+| Exponent bit | Normal scale changes by | 0.5B, n | 0.5B hard failures | 1.5B, n | 1.5B hard failures |
 |---:|---:|---:|---:|---:|---:|
 | 4 | 2^16 | 313 | **99.0%** [97.2, 99.7] | 175 | **99.4%** [96.8, 99.9] |
 | 3 | 2^8 | 317 | 62.8% [57.3, 67.9] | 188 | 43.1% [36.2, 50.2] |
@@ -47,12 +49,13 @@ exponent bit `i` multiplies or divides the block's scale by `2^(2^i)`:
 | 1 | 2^2 | 241 | 0.0% [0.0, 1.6] | 175 | 4.6% [2.3, 8.8] |
 | 0 | 2^1 | 249 | 0.0% [0.0, 1.5] | 191 | 0.0% [0.0, 2.0] |
 
-A 256-fold change in one block's scale breaks the model about half the time at either size. A
-sixteenfold change is nearly harmless at 0.5B and breaks the 1.5B model roughly a quarter of
-the time, and the intervals do not overlap. **The threshold between absorbed and not absorbed
-moves down as the model grows.** That was the open question this repository was built to ask,
-and two model sizes are enough to say the answer is not "it stays put". They are not enough to
-say what the curve is, which is why the device table exists.
+A flip of bit 3 breaks the model about half the time at either size. A flip of bit 2 rarely
+does at 0.5B and does at 1.5B in about a quarter of cases, and those intervals do not overlap.
+The bit-2 and bit-1 failures at 1.5B are concentrated in one tensor whose block type differs
+between the two model sizes. Read the per-bit table as "what happened", not as evidence that
+tolerance falls with model size: two sizes from one family cannot separate model size from the
+quantizer's per-tensor type choices. Separating them needs more sizes, more families and other
+hardware, which is why the device table exists.
 
 Two earlier statements of this table are superseded and worth naming, because the first
 campaign's data is still shipped in `data/p100-qwen2.5-0.5b/`. It reported the lower three bits
@@ -146,10 +149,9 @@ No checksum, no replica, no parity for the main case. Five bits and a comparison
 
 The detection figure is measured on the 0.5B files only, because the true scale ranges of the
 1.5B files were never read and a range check cannot be scored without them. That is the first
-thing a rerun should fix, and the per-bit table above says which way the answer will move: at
-1.5B a fourfold scale change does damage, and a fourfold change lands inside the file's own
-range, so a range check will catch a smaller share there. Do not quote 68.7 percent for a
-larger model.
+thing a rerun should fix. Do not quote 68.7 percent for a larger model: some 1.5B failures
+come from flips of the lower exponent bits, a flip that stays inside a file's own range is one a
+range check cannot see, and the share it catches at 1.5B is not measured here.
 
 To check a file against a stored range rather than only report one:
 

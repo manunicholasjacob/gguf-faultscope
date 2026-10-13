@@ -141,8 +141,9 @@ def table_exponent_bits(rows: List[Dict]) -> List[Dict]:
 
     An fp16 is 1 sign, 5 exponent, 10 mantissa, little endian in the file, so within the high
     byte bit 7 is the sign and bits 6 down to 2 are the exponent from most to least
-    significant. Flipping exponent bit i changes the exponent by 2^i, so the scale is
-    multiplied or divided by 2 raised to that.
+    significant. Flipping exponent bit i changes the exponent by 2^i, so a normal scale is
+    multiplied or divided by 2 raised to that. A subnormal scale changes by a larger factor
+    that depends on its stored value.
     """
     g: Dict[int, List[Dict]] = defaultdict(list)
     for r in rows:
