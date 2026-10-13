@@ -1,5 +1,6 @@
 # gguf-faultscope
 
+[![tests](https://github.com/manunicholasjacob/gguf-faultscope/actions/workflows/ci.yml/badge.svg)](https://github.com/manunicholasjacob/gguf-faultscope/actions/workflows/ci.yml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22163327.svg)](https://doi.org/10.5281/zenodo.22163327)
 
 What one flipped bit does to a quantized language model, and where it has to land to matter.
