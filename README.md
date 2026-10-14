@@ -249,6 +249,14 @@ threshold-sensitive and it moves the per-bit rates by several points. Exactly on
 outside the exponent field ever crossed that looser clause: a sign flip in a Q5_1 tensor that
 moved 11.3 percent of token predictions while perplexity rose 8 percent.
 
+## Related tools
+
+Other tools by the same author for people measuring local LLM inference:
+
+- [llama-roofline](https://github.com/manunicholasjacob/llama-roofline): is your llama.cpp decode memory-bandwidth-bound? One command measures the ceiling and compares.
+- [ml-systems-lab](https://github.com/manunicholasjacob/ml-systems-lab): one YAML config drives llama.cpp and ONNX Runtime sweeps across laptops, Raspberry Pi and GPUs, with power and thermal telemetry.
+- [qgemv-roofline](https://github.com/manunicholasjacob/qgemv-roofline): quantized GEMV kernels for batch-1 LLM decode, written from scratch and measured against a bandwidth roof the repository measures for itself.
+
 ## Citing
 
 See [CITATION.cff](CITATION.cff).
